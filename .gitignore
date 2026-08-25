@@ -1,0 +1,42 @@
+# ==============================
+# ShopSphere Git Ignore
+# ==============================
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Maven build output
+target/
+**/target/
+
+# IntelliJ IDEA
+.idea/
+**/.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# Java
+*.class
+*.jar
+*.war
+
+# Logs
+*.log
+logs/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Docker local overrides
+docker-compose.override.yml
