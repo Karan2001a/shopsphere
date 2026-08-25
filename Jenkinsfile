@@ -54,25 +54,31 @@ pipeline {
             }
         }
 
-        stage('Docker Build') {
-            steps {
-                bat 'docker compose build'
-            }
-        }
+         stage('Check Docker') {
+           steps {
+               bat '"C:\\Users\\bhoja\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" --version'
+               bat '"C:\\Users\\bhoja\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" compose version'
+           }
+       }
 
-        stage('Docker Deploy') {
-            steps {
-                bat 'docker compose down'
-                bat 'docker compose up -d'
-            }
-        }
+       stage('Docker Build') {
+           steps {
+               bat '"C:\\Users\\bhoja\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" compose build'
+           }
+       }
 
-        stage('Verify Containers') {
-            steps {
-                bat 'docker compose ps'
-            }
-        }
-    }
+       stage('Docker Deploy') {
+           steps {
+               bat '"C:\\Users\\bhoja\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" compose down'
+               bat '"C:\\Users\\bhoja\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" compose up -d'
+           }
+       }
+
+       stage('Verify Containers') {
+           steps {
+               bat '"C:\\Users\\bhoja\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" compose ps'
+           }
+       }
 
     post {
         success {
