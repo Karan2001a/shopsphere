@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway
+
+services:
+  user:
+    url: http://localhost:8081
+
+  product:
+    url: http://localhost:8082
+
+  order:
+    url: http://localhost:8083
+
+jwt:
+  secret: "VGhpc0lzQVNob3BTcGhlcmVTZWNyZXRLZXlGb3JKV1RTaWduaW5nMjAyNg=="
