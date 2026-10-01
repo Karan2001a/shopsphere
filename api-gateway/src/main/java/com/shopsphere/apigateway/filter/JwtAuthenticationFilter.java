@@ -111,21 +111,15 @@ public class JwtAuthenticationFilter
         );
     }
 
-    private boolean isPublicEndpoint(
-            String path) {
+    private boolean isPublicEndpoint(String path) {
 
-        return path.equals(
-                "/api/users/register"
-        )
-                ||
-                path.equals(
-                        "/api/users/login"
-                );
-    }
+    return path.equals("/api/users/register")
+            || path.equals("/api/users/login")
+            || path.equals("/health");
+}
 
     private Mono<Void> unauthorized(
-            ServerWebExchange exchange,
-            String message) {
+            ServerWebExchange exchange,            String message) {
 
         exchange.getResponse()
                 .setStatusCode(
