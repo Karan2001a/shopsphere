@@ -13,7 +13,7 @@ pipeline {
     steps {
         sshagent(credentials: ['shopsphere-ec2-ssh']) {
             bat '''
-                "C:\\Program Files\\Git\\usr\\bin\\ssh.exe" -o BatchMode=yes -o KexAlgorithms=curve25519-sha256 -o StrictHostKeyChecking=yes -o UserKnownHostsFile="C:\\ProgramData\\Jenkins\\.jenkins\\.ssh\\known_hosts" ubuntu@35.183.122.148 "docker --version"
+                "C:\\Program Files\\Git\\usr\\bin\\ssh.exe" -o BatchMode=yes -o KexAlgorithms=curve25519-sha256 -o StrictHostKeyChecking=yes -o UserKnownHostsFile="C:\\ProgramData\\Jenkins\\.jenkins\\.ssh\\known_hosts" ubuntu@35.183.122.148 "docker ps --format '{{.Names}}: {{.Status}}'"
             '''
         }
     }
